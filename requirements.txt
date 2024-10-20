@@ -1,0 +1,11 @@
+flask
+gunicorn
+google-generativeai
+python-dotenv
+joblib
+scikit-learn
+textblob
+transformers
+#torch
+#diffusers
+#web3

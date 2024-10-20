@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joke Page</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Here's a joke for you:</h2>
+      <p>{{ joke }}</p>
+      <form action="/joke" method="post">
+        <input type="submit" value="Tell Another Joke" />
+      </form>
+      <form action="/" method="get">
+        <input type="submit" value="Back to Home" />
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BC3415 Chatbot Advisor</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Welcome to BC3415 Chatbot Advisor</h2>
+      <img
+        src="{{ url_for('static', filename='images/istockphoto-1634086519-1024x1024.jpg') }}"
+        alt="Lama Robo Advisor"
+      />
+      <form action="/financial_FAQ" method="post">
+        <input type="submit" value="Financial FAQ" />
+      </form>
+      <form action="/joke" method="post">
+        <input type="submit" value="Tell a Joke" />
+      </form>
+      <form action="/prediction" method="get">
+        <input type="submit" value="Prediction" />
+      </form>
+      <form action="/sentiment" method="get">
+        <input type="submit" value="Sentiment Analysis" />
+      </form>
+      <form action="/transfer" method="get">
+        <input type="submit" value="Transfer Money" />
+      </form>
+    </div>
+  </body>
+</html>

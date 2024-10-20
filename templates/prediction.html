@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DBS Share Price Prediction</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2>DBS Share Price Prediction</h2>
+      <form action="/prediction" method="post">
+        <label for="sgd_value">Enter SGD Value:</label>
+        <input
+          type="number"
+          id="sgd_value"
+          name="sgd_value"
+          step="0.01"
+          required
+        />
+        <input type="submit" value="Predict" />
+      </form>
+      {% if predicted_price is not none %}
+      <p>Predicted DBS Share Price: {{ predicted_price }}</p>
+      {% endif %}
+      <form action="/" method="get">
+        <input type="submit" value="Back to Home" />
+      </form>
+    </div>
+  </body>
+</html>
