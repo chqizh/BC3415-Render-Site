@@ -6,9 +6,8 @@ from dotenv import load_dotenv
 import joblib
 import sklearn
 from textblob import TextBlob
-import torch
-from transformers import pipeline
 #import torch
+#from transformers import pipeline
 #from diffusers import StableDiffusionPipeline, DiffusionPipeline,DPMSolverMultistepScheduler
 #from web3 import Web3 # Too large for Render.com, using JS Web3 instead
 
@@ -66,21 +65,20 @@ def prediction():
 @app.route('/sentiment', methods=["GET", "POST"])
 def sentiment():
     sentiment_textblob = None
-    sentiment_transformers = None
+    #sentiment_transformers = None
     if request.method == 'POST':
         try:
             text = str(request.form['text'])
-            print(text)
             sentiment_textblob = TextBlob(text).sentiment
             #sentiment_transformers = pipeline("sentiment-analysis", device="mps", model="distilbert/distilbert-base-uncased-finetuned-sst-2-english")(text)
-            sentiment_transformers = pipeline("sentiment-analysis", device="cpu", model="distilbert/distilbert-base-uncased-finetuned-sst-2-english")(text)
-            sentiment_transformers = f"label: {sentiment_transformers[0]['label']}, score: {sentiment_transformers[0]['score']}"
+            #sentiment_transformers = pipeline("sentiment-analysis", device="cpu", model="distilbert/distilbert-base-uncased-finetuned-sst-2-english")(text)
+            #sentiment_transformers = f"label: {sentiment_transformers[0]['label']}, score: {sentiment_transformers[0]['score']}"
 
         except Exception as e:
             print("Error during prediction:", e)
             return "Bad Request: " + str(e), 400
     
-    return render_template('sentiment.html', sentiment_textblob=sentiment_textblob, sentiment_transformers=sentiment_transformers)
+    return render_template('sentiment.html', sentiment_textblob=sentiment_textblob)
 
 @app.route('/transfer', methods=["GET", "POST"])
 def transfer():

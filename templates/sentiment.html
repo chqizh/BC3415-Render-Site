@@ -26,9 +26,6 @@
             {% if sentiment_textblob is not none %}
             <p>Sentiment (TextBlob): {{ sentiment_textblob }}</p>
             {% endif %}
-            {% if sentiment_transformers is not none %}
-            <p>Sentiment (Transformers): {{ sentiment_transformers }}</p>
-            {% endif %}
             <form action="/" method="get">
                 <input type="submit" value="Back to Home" />
             </form>

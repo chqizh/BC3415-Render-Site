@@ -5,7 +5,7 @@ python-dotenv
 joblib
 scikit-learn
 textblob
-torch
-transformers
+#transformers
+#torch
 #diffusers
 #web3
