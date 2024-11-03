@@ -85,4 +85,4 @@ def transfer():
     return render_template('transfer.html')
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

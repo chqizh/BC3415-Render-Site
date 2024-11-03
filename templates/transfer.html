@@ -11,28 +11,38 @@
   </head>
   <body>
     <div class="container">
-      <h2>Transfer Money</h2>
-      <input
-        type="text"
-        id="from"
-        name="from"
-        placeholder="From (Payee Address)"
-        required
-      />
-      <input
-        type="text"
-        id="to"
-        name="to"
-        placeholder="To (Payer Address)"
-        required
-      />
-      <input
-        type="text"
-        id="amount"
-        name="amount"
-        placeholder="Amount to transfer (Sepolia)"
-        required
-      />
+      <h2>Ethereum DApp</h2>
+      <h3>Transfer Money</h3>
+      <div>
+        From:
+        <input
+          type="text"
+          id="from"
+          name="from"
+          placeholder="Payee Address"
+          required
+        />
+      </div>
+      <div>
+        To:
+        <input
+          type="text"
+          id="to"
+          name="to"
+          placeholder="Recipient Address"
+          required
+        />
+      </div>
+      <div>
+        Amount:
+        <input
+          type="text"
+          id="amount"
+          name="amount"
+          placeholder="Sepolia to Transfer"
+          required
+        />
+      </div>
       <button class="btn" onclick="transfer()">Transfer</button>
       <button class="btn" onclick="transaction()">View Transaction</button>
       <p id="view_payee"></p>
@@ -109,14 +119,19 @@
           const amount_transfer = document.getElementById("amount").value;
           console.log(payee_addr, payer_addr, amount_transfer);
 
-          await contract.methods.transfer(payee_addr, payer_addr, amount_transfer).send({from: account[0]});
+          await contract.methods
+            .transfer(payee_addr, payer_addr, amount_transfer)
+            .send({ from: account[0] });
         }
 
         async function transaction() {
-          const result = await contract.methods.transaction().call()
-          document.getElementById("view_payee").innerText = "View Payee Address: " + result[0];
-          document.getElementById("view_payer").innerText = "View Payer Address: " + result[1];
-          document.getElementById("view_amount").innerText = "View Amount Transfered: " + result[2];
+          const result = await contract.methods.transaction().call();
+          document.getElementById("view_payee").innerText =
+            "View Payee Address: " + result[0];
+          document.getElementById("view_payer").innerText =
+            "View Payer Address: " + result[1];
+          document.getElementById("view_amount").innerText =
+            "View Amount Transfered: " + result[2];
         }
       </script>
     </div>
