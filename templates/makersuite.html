@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<script type="module" src="https://md-block.verou.me/md-block.js"></script>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -13,9 +12,7 @@
   <body>
     <div class="container">
       <h2>Reply:</h2>
-      <p>
-        <md-block>{{r}}</md-block>
-      </p>
+      <p>{{r | safe}}</p>
       <form action="/" method="post">
         <input type="submit" value="Back to Home" />
       </form>

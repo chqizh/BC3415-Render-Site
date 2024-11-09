@@ -1,4 +1,5 @@
 from flask import Flask,render_template,request
+import markdown
 import google.generativeai as genai
 import random
 import os
@@ -29,7 +30,8 @@ def makersuite():
     model = genai.GenerativeModel('gemini-1.5-flash')
     q = request.form.get("q")
     r = model.generate_content(q)
-    return(render_template("makersuite.html", r=r.text))
+    r_markdown = markdown.markdown(r.text)
+    return(render_template("makersuite.html", r=r_markdown))
 
 jokes = [
     "Why couldn't encik order McSpicy upsize? Because he's a regular.",
